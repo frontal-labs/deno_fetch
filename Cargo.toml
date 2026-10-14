@@ -1,0 +1,70 @@
+# Copyright 2018-2026 the Deno authors. MIT license.
+# Standalone copy of ext/fetch from denoland/deno v2.9.7, with the workspace
+# dependency versions pinned explicitly, rustls bumped to 0.23.45, and
+# hickory-resolver migrated to 0.26. See NOTICE.md.
+
+[package]
+name = "deno_fetch"
+version = "0.283.0"
+authors = ["the Deno authors"]
+edition = "2024"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/frontal-labs/deno_fetch"
+description = "Fetch API implementation for Deno (Frontal Labs fork)"
+
+[lib]
+path = "lib.rs"
+
+[dependencies]
+async-compression = { version = "0.4", features = ["tokio", "brotli", "gzip"] }
+base64 = "0.22.1"
+bytes = "1.11.1"
+data-url = "=0.3.1"
+deno_core = "0.412.0"
+deno_error = "=0.7.1"
+deno_fs = "0.169.0"
+deno_io = "0.169.0"
+deno_path_util = "=0.6.4"
+deno_permissions = "0.118.0"
+deno_tls = "0.246.0"
+error_reporter = "1"
+h2 = "0.4.6"
+hickory-resolver = { version = "0.26.2", features = ["tokio", "serde"] }
+http = "1.0"
+http-body-util = "0.1.2"
+hyper = { version = "1.6.0", features = ["full"] }
+hyper-rustls = { version = "0.27.2", default-features = false, features = ["http1", "http2", "tls12", "aws-lc-rs"] }
+hyper-util = { version = "0.1.17", features = ["tokio", "client", "client-legacy", "server", "server-auto"] }
+ipnet = "2.3"
+percent-encoding = "2.3.0"
+rustls = { version = "=0.23.45", default-features = false, features = ["logging", "std", "tls12", "aws_lc_rs"] }
+rustls-webpki = "0.103"
+resolv-conf = { version = "0.7.0", features = ["system"] }
+serde_json = { version = "1.0.85", features = ["raw_value"] }
+thiserror = "2.0.12"
+tokio = { version = "1.47.1", features = ["full"] }
+tokio-rustls = { version = "0.26.0", default-features = false, features = ["aws_lc_rs", "tls12"] }
+tokio-socks = "0.5.3"
+tokio-util = { version = "0.7.16", features = ["io"] }
+tower = { version = "0.5.2", default-features = false, features = ["retry", "util"] }
+tower-service = "0.3.2"
+
+[dev-dependencies]
+deno_bench_util = "0.253.0"
+deno_web = "0.290.0"
+deno_webidl = "0.259.0"
+fast-socks5 = "0.9.6"
+rustls = { version = "=0.23.45", default-features = false, features = ["logging", "std", "tls12", "aws_lc_rs"] }
+sys_traits = { version = "0.1.28", features = ["libc", "real", "winapi"] }
+
+[target.'cfg(any(target_os = "android", target_os = "linux", target_os = "macos"))'.dependencies]
+tokio-vsock = "0.7"
+
+[[bench]]
+name = "headers_methods"
+harness = false
+
+[[bench]]
+name = "body"
+harness = false
