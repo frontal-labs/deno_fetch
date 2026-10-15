@@ -46,9 +46,8 @@ static BR_HELLO_FROM_SERVER: &[u8] = &[
   0x56,
 ];
 
-static EXAMPLE_CRT: &[u8] = include_bytes!("testdata/example1_cert.der");
-static EXAMPLE_KEY: &[u8] =
-  include_bytes!("testdata/example1_prikey.der");
+static EXAMPLE_CRT: &[u8] = include_bytes!("../testdata/example1_cert.der");
+static EXAMPLE_KEY: &[u8] = include_bytes!("../testdata/example1_prikey.der");
 
 #[test]
 fn test_userspace_resolver() {
