@@ -14,7 +14,7 @@ repository = "https://github.com/frontal-labs/deno_fetch"
 description = "Fetch API implementation for Deno (Frontal Labs fork)"
 
 [lib]
-path = "lib.rs"
+path = "src/lib.rs"
 
 [dependencies]
 async-compression = { version = "0.4", features = ["tokio", "brotli", "gzip"] }

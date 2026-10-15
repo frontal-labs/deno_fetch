@@ -1,9 +1,9 @@
 // Copyright 2018-2026 the Deno authors. MIT license.
 
 pub mod dns;
-mod system_conf;
 mod fs_fetch_handler;
 mod proxy;
+mod system_conf;
 #[cfg(test)]
 mod tests;
 
