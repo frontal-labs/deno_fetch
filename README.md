@@ -80,3 +80,7 @@ Following ops are provided, which can be accessed through `Deno.ops`:
 - op_utf8_to_byte_string
 - op_fetch_custom_client
 - op_fetch_promise_is_settled
+
+## Development
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for repository checks and pull request guidance.
